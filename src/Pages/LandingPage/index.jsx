@@ -17,7 +17,6 @@ const LandingPage = () => {
         </p>
 
         <Link to="/login">
-          {" "}
           <button>Logar na Aplicação</button>
         </Link>
       </ContainerInfo>

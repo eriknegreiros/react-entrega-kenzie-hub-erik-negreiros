@@ -1,6 +1,6 @@
 import { Navbar } from "./style";
-import { Header } from "./style";
 import { useNavigate} from "react-router-dom";
+import HeaderDash from "../../Components/Dashboard";
 
 const Dashboard = ({ name, module }) => {
 
@@ -20,10 +20,7 @@ const logout = () => {
        <button onClick={logout}>Sair</button>
       </Navbar>
 
-      <Header>
-        <h1>Olá,{name}</h1>
-        <span>{module}</span>
-      </Header>
+      <HeaderDash name={name} module={module}/>
     </>
   );
 };

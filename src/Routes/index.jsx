@@ -17,6 +17,10 @@ const RoutesMain = () => {
             element={<LandingPage/>}
           />
           <Route
+            path="*"
+            element={<LandingPage/>}
+          />
+          <Route
             path="/login"
             element={<Login setName={setName} setModule={setModule} />}
           />
