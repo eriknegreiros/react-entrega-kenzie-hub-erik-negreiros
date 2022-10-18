@@ -9,12 +9,11 @@ const AuthProvider = ({ children }) => {
   const navigate = useNavigate();
 
   const [user, setUser] = useState(null);
-  const [techs, setTechs] = useState(null)
+  const [techs, setTechs] = useState(null);
   const token = localStorage.getItem("@TOKEN");
 
   useEffect(() => {
     async function loadUser() {
-      
       if (token) {
         try {
           const { data } = await api.get("/profile", {
@@ -23,14 +22,13 @@ const AuthProvider = ({ children }) => {
             },
           });
           setUser(data);
-          
-          
         } catch (error) {
           console.error(error);
-          localStorage.clear()
+          localStorage.clear();
         }
         navigate("/dashboard");
-        
+      } else {
+        navigate("/login") || navigate('/');
       }
     }
     loadUser();
@@ -44,12 +42,11 @@ const AuthProvider = ({ children }) => {
 
         localStorage.setItem("@TOKEN", res.data.token);
         localStorage.setItem("@USERID", res.data.user.id);
-        setTechs(res.data.user.techs)
+        setTechs(res.data.user.techs);
 
         setTimeout(() => {
           navigate("/dashboard", { replace: true });
         }, 2500);
-        
       })
       .catch((err) => {
         toast.error("Verifique os Dados");
