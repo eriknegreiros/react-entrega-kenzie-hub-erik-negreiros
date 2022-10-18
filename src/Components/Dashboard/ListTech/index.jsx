@@ -10,9 +10,9 @@ import { AiOutlinePlus } from "react-icons/ai";
 import { TechContext } from "../../../Context/TechContext";
 
 
-const ListTech = ({setModal}) => {
-  const { user } = useContext(AuthContext);
-  const { openModal } = useContext(TechContext);
+const ListTech = () => {
+  const { user, techs } = useContext(AuthContext);
+  const { setModal, setRemoveModal } = useContext(TechContext);
 
 
   
@@ -37,7 +37,7 @@ const ListTech = ({setModal}) => {
                   <h4>{element.title}</h4>
                   <div className="status_trash">
                     <p>{element.status}</p>
-                    <button>
+                    <button onClick={() => setRemoveModal(true)}>
                       <BsTrash />
                     </button>
                   </div>

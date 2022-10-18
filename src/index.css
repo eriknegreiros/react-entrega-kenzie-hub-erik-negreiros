@@ -27,6 +27,7 @@ body {
 	line-height: 1;
 	background-color: var(--background-color)
 	;
+	overflow-x:hidden;
 }
 ol, ul {
 	list-style: none;
@@ -43,6 +44,29 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+
+/* ===== Scrollbar CSS ===== */
+  /* Firefox */
+  * {
+    scrollbar-width: auto;
+    scrollbar-color: #a1a1a1 #ffffff;
+  }
+
+  /* Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 16px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: #ffffff;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: #a1a1a1;
+    border-radius: 10px;
+    border: 3px solid #ffffff;
+  }
+
 
 
 :root{

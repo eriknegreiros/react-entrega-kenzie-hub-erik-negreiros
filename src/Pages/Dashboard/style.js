@@ -8,6 +8,8 @@ export const Navbar = styled.header`
   justify-content: space-between;
   border-bottom: 1px solid var(--grey-3);
   position: fixed;
+  z-index: 999;
+  background-color: var(--grey-4);
 
   @media(min-width:768px){
     justify-content: space-evenly;

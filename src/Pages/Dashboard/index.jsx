@@ -1,13 +1,16 @@
 import { Navbar } from "./style";
 import { useNavigate } from "react-router-dom";
 import HeaderDash from "../../Components/Dashboard";
-import { useState } from "react";
-import Modal from "../../Components/Dashboard/Modal";
+import { useState, useContext } from "react";
+import AddTechModal from "../../Components/Dashboard/AddtechModal";
+import { TechContext } from "../../Context/TechContext";
+import RemoveTechModal from "../../Components/Dashboard/RemoveTechModal";
 
-const Dashboard = ({ name, module }) => {
+const Dashboard = () => {
   const navigate = useNavigate();
 
-  const [modal, setModal] = useState(false);
+  const {modal, removeModal} = useContext(TechContext)
+  
 
   const logout = () => {
     window.localStorage.clear();
@@ -16,7 +19,8 @@ const Dashboard = ({ name, module }) => {
 
   return (
     <>
-      {modal ? <Modal setModal={setModal} /> : ("")}
+      {modal ? <AddTechModal /> : ("")}
+      {removeModal ? <RemoveTechModal /> : ("")}
 
       <Navbar>
         <h1>Kenzie Hub</h1>
@@ -24,10 +28,6 @@ const Dashboard = ({ name, module }) => {
       </Navbar>
 
       <HeaderDash
-        modal={modal}
-        setModal={setModal}
-        name={name}
-        module={module}
       />
     </>
   );

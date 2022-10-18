@@ -5,8 +5,10 @@ import ListTech from "./ListTech";
 import { Outlet } from "react-router-dom";
 import { TechContext } from "../../Context/TechContext";
 
-const HeaderDash = ({setModal}) => {
+
+const HeaderDash = () => {
   const { user } = useContext(AuthContext);
+
 
   return (
     <>
@@ -15,7 +17,7 @@ const HeaderDash = ({setModal}) => {
             <h1>Olá, {user?.name}</h1>
             <span>{user?.course_module}</span>
           </Header>
-          <ListTech setModal={setModal} />
+          <ListTech  />
           <Outlet />
         </>
       

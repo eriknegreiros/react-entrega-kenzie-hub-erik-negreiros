@@ -9,10 +9,12 @@ const AuthProvider = ({ children }) => {
   const navigate = useNavigate();
 
   const [user, setUser] = useState(null);
+  const [techs, setTechs] = useState(null)
+  const token = localStorage.getItem("@TOKEN");
 
   useEffect(() => {
     async function loadUser() {
-      const token = localStorage.getItem("@TOKEN");
+      
       if (token) {
         try {
           const { data } = await api.get("/profile", {
@@ -32,7 +34,7 @@ const AuthProvider = ({ children }) => {
       }
     }
     loadUser();
-  }, []);
+  }, [token]);
 
   const Login = async (data) => {
     await api
@@ -42,10 +44,10 @@ const AuthProvider = ({ children }) => {
 
         localStorage.setItem("@TOKEN", res.data.token);
         localStorage.setItem("@USERID", res.data.user.id);
+        setTechs(res.data.user.techs)
 
         setTimeout(() => {
           navigate("/dashboard", { replace: true });
-          window.location.reload()
         }, 2500);
         
       })
@@ -73,7 +75,7 @@ const AuthProvider = ({ children }) => {
 
   return (
     <>
-      <AuthContext.Provider value={{ Login, Register, user }}>
+      <AuthContext.Provider value={{ Login, Register, user, techs }}>
         {children}
       </AuthContext.Provider>
     </>

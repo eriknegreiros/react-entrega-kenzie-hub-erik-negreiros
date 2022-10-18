@@ -55,11 +55,13 @@ export const AllCards = styled.div`
   align-items: center;
   flex-direction: column;
   border-radius: 4px;
+  margin-bottom: 100px;
 
   @media (min-width: 768px) {
     margin: 0px;
     width: 54vw;
     min-height: 35vh;
+    margin-bottom: 50px;
   }
 `;
 
