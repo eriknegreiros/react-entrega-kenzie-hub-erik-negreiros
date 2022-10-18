@@ -3,35 +3,28 @@ import Login from "../Pages/Login";
 import Register from "../Pages/Register";
 import Dashboard from "../Pages/Dashboard";
 import LandingPage from "../Pages/LandingPage";
-import { useState } from "react";
 
 const RoutesMain = () => {
-    const [name, setName] = useState("");
-    const [module, setModule] = useState("");
   
-    return (
-      <>
+
+  return (
+    <> 
         <Routes>
-          <Route
-            path="/"
-            element={<LandingPage/>}
-          />
-          <Route
-            path="*"
-            element={<LandingPage/>}
-          />
+          <Route path="/" element={<LandingPage />} />
+          <Route path="*" element={<LandingPage />} />
           <Route
             path="/login"
-            element={<Login setName={setName} setModule={setModule} />}
+            element={<Login  />}
           />
           <Route path="/register" element={<Register />} />
           <Route
             path="/dashboard"
-            element={<Dashboard name={name} module={module} />}
+            element={<Dashboard />}
           />
         </Routes>
-      </>
-    );
-  };
+      
+    </>
+  );
+};
 
-  export default RoutesMain
+export default RoutesMain;

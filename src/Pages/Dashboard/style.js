@@ -4,14 +4,17 @@ export const Navbar = styled.header`
   width: 100vw;
   height: 80px;
   display: flex;
-  gap: 13vw;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: space-between;
   border-bottom: 1px solid var(--grey-3);
   position: fixed;
 
+  @media(min-width:768px){
+    justify-content: space-evenly;
+  }
+
   h1 {
-    margin: 30px;
+    margin: 3vw;
     font-family: var(--font);
     color: var(--color-primary);
     font-weight: 700;
@@ -20,7 +23,7 @@ export const Navbar = styled.header`
   }
 
   button {
-    margin: 30px;
+    margin: 3vw;
     font-family: var(--font);
     color: var(--grey-0);
     border: none;
@@ -31,6 +34,12 @@ export const Navbar = styled.header`
     text-align: center;
     cursor: pointer;
   }
+
+  @media(min-width:768px){
+    display: flex;
+    justify-content: space-evenly;
+    gap: 15vw;
+}
 `;
 
 

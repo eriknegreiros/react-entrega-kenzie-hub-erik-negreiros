@@ -5,11 +5,12 @@ import { Form } from "./style";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import { useNavigate, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
-import api from "../../Services/api";
+import { useContext } from "react";
+import { AuthContext } from "../../Context/AuthContext";
 
-const LoginPanel = ({ setName, setModule }) => {
+const LoginPanel = () => {
     const schema = yup.object({
       email: yup.string().required("E-mail Obrigatório"),
       password: yup.string().required("Senha Obrigatório"),
@@ -23,30 +24,7 @@ const LoginPanel = ({ setName, setModule }) => {
       resolver: yupResolver(schema),
     });
   
-    const navigate = useNavigate();
-  
-    const  onSubmit = async (data) => {
-     await api
-        .post("/sessions", data)
-        .then((res) => {
-          toast.success("Usúario Logado com Sucesso");
-          window.localStorage.clear();
-          window.localStorage.setItem("@TOKEN", res.data.token);
-          window.localStorage.setItem("@USERID", res.data.user.id);
-          setName(res.data.user.name);
-          setModule(res.data.user.course_module);
-          console.log();
-          setTimeout(() => {
-            navigate("/dashboard");
-          }, 2500);
-          return res.data;
-        })
-        .catch((err) => {
-          toast.error("Verifique os Dados");
-          return err;
-        });
-    };
-  
+    const {Login} = useContext(AuthContext)
   
   
     return (
@@ -60,7 +38,7 @@ const LoginPanel = ({ setName, setModule }) => {
           <Background>
             <h1>Login</h1>
   
-            <Form onSubmit={handleSubmit(onSubmit)}>
+            <Form onSubmit={handleSubmit(Login)}>
               <label htmlFor="">Email</label>
               <input
                 type="email"

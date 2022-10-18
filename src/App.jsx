@@ -1,11 +1,9 @@
 import RoutesMain from "./Routes";
 
 const App = () => {
- 
-
   return (
     <>
-      <RoutesMain/>
+      <RoutesMain />
     </>
   );
 };
