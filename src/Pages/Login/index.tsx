@@ -1,10 +1,10 @@
 import LoginPanel from "../../Components/LoginPanel";
 
-const Login = ({ setName, setModule }) => {
+const Login = () => {
  
   return(
     <>
-    <LoginPanel setName={setName} setModule={setModule}  />
+    <LoginPanel  />
     </>
   )
   

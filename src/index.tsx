@@ -7,7 +7,7 @@ import { BrowserRouter } from "react-router-dom";
 import AuthProvider from "./Context/AuthContext";
 import TechProvider from "./Context/TechContext";
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
+const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement);
 root.render(
   <React.StrictMode>
     <BrowserRouter>

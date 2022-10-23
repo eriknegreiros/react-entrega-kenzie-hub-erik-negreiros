@@ -1,7 +1,6 @@
 import { Container } from "./style";
 import { ContainerInfo } from "./style";
 import { ContainerImg } from "./style";
-import img from "../../assets/girlCoding.gif";
 import { Link } from "react-router-dom";
 
 const LandingPage = () => {
@@ -22,7 +21,7 @@ const LandingPage = () => {
       </ContainerInfo>
 
       <ContainerImg>
-        <img src={img} alt="Girl coding" />
+        <img src='../../assets/girlCoding.png' alt="Girl coding" />
       </ContainerImg>
     </Container>
   );

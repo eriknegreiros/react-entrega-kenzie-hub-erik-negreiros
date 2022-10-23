@@ -7,8 +7,8 @@ import { Card } from "./style";
 const RemoveTechModal = () => {
 
     const {setRemoveModal, DeleteTech } = useContext(TechContext)
-    const {tech} = useContext(AuthContext)
-
+    const {techs} = useContext(AuthContext)
+  console.log(techs)
   return (
     <>
       <Section>
@@ -17,8 +17,10 @@ const RemoveTechModal = () => {
             <h1>Deseja Remover a Tecnologia</h1>
             <div>
                 <button onClick={() => {
-                  tech.map((element) => 
-                    DeleteTech(element.techs.id)
+                  
+                  techs.map((element) => 
+                
+                    DeleteTech(element.id)
                   )
                 }}>Excluir</button>
                 <button  onClick={() => setRemoveModal(false)}>Cancelar</button>

@@ -10,6 +10,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useContext } from "react";
 import { TechContext } from "../../../Context/TechContext";
+import { iRegisterTech } from "../../../Context/TechContext";
 
 const AddTechModal = () => {
   const schema = yup.object({
@@ -20,7 +21,7 @@ const AddTechModal = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm({
+  } = useForm <iRegisterTech>({
     resolver: yupResolver(schema),
   });
 

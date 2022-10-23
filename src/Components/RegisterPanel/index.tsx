@@ -1,8 +1,8 @@
-import { Container } from "./style.js";
-import { LogoAndBtn } from "./style.js";
-import { BackgroundForm } from "./style.js";
-import { DivInfo } from "./style.js";
-import { Form } from "./style.js";
+import { Container } from "./style";
+import { LogoAndBtn } from "./style";
+import { BackgroundForm } from "./style";
+import { DivInfo } from "./style";
+import { Form } from "./style";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
@@ -11,7 +11,8 @@ import "react-toastify/dist/ReactToastify.css";
 import "./style.css";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
-import { AuthContext } from "../../Context/AuthContext.jsx";
+import { AuthContext } from "../../Context/AuthContext";
+import { iRegister } from "../../Context/AuthContext";
 
 const RegisterPanel = () => {
   const schema = yup.object({
@@ -40,7 +41,7 @@ const RegisterPanel = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm({
+  } = useForm <iRegister>({
     resolver: yupResolver(schema),
   });
 

@@ -7,8 +7,9 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { Link } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
-import { useContext } from "react";
+import React, { useContext } from "react";
 import { AuthContext } from "../../Context/AuthContext";
+import { iLogin } from "../../Context/AuthContext";
 
 const LoginPanel = () => {
     const schema = yup.object({
@@ -20,11 +21,13 @@ const LoginPanel = () => {
       register,
       handleSubmit,
       formState: { errors },
-    } = useForm({
+    } = useForm<iLogin>({
       resolver: yupResolver(schema),
     });
   
-    const {Login} = useContext(AuthContext)
+    const  {Login} = useContext(AuthContext)
+
+
   
   
     return (
@@ -45,8 +48,9 @@ const LoginPanel = () => {
                 placeholder="Digite aqui seu Email"
                 {...register("email")}
               />
+              
               {toast.error(errors.email?.message, {
-                toastId: "",
+                toastId: ""
               })}
   
               <label htmlFor="">Senha</label>
